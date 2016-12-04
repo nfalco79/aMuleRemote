@@ -41,12 +41,4 @@
         android:layout_height="0dip"
         android:layout_weight="1"/>
 
-    <com.google.android.gms.ads.AdView
-        android:id="@+id/adView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        ads:adSize="SMART_BANNER"
-        ads:adUnitId="ca-app-pub-1535323231055867/4203941434">
-    </com.google.android.gms.ads.AdView>
-
 </LinearLayout>

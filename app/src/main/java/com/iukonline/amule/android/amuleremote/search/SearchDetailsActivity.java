@@ -25,8 +25,6 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
 import com.iukonline.amule.android.amuleremote.AmuleRemoteApplication;
 import com.iukonline.amule.android.amuleremote.AmuleRemoteApplication.RefreshingActivity;
 import com.iukonline.amule.android.amuleremote.BuildConfig;
@@ -83,13 +81,6 @@ public class SearchDetailsActivity extends AppCompatActivity implements AlertDia
             
             getSupportFragmentManager().beginTransaction().add(R.id.search_details_frag_result_details, f).commit();
         }
-
-        AdView adView = (AdView)this.findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder()
-                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
-                .addTestDevice("TEST_DEVICE_ID")
-                .build();
-        adView.loadAd(adRequest);
 
 
     }

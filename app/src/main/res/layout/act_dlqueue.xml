@@ -129,12 +129,5 @@
         tools:layout="@layout/frag_dlqueue" >
     </fragment>
 
-    <com.google.android.gms.ads.AdView
-        android:id="@+id/adView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        ads:adSize="SMART_BANNER"
-        ads:adUnitId="ca-app-pub-1535323231055867/1250475037">
-    </com.google.android.gms.ads.AdView>
 
 </LinearLayout>

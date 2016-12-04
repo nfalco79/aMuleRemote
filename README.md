@@ -34,3 +34,25 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+
+## List of dependences of aMule Remote
+
+org.acra.ACRA
+https://github.com/ACRA/acra
+Apache License Version 2.0 (GPLv3 compatible)
+
+de.keyboardsurfer.android.widget.crouton.Crouton
+https://github.com/keyboardsurfer/Crouton
+Apache License Version 2.0 (GPLv3 compatible)
+
+com.github.machinarius.preferencefragment
+https://github.com/Machinarius/PreferenceFragment-Compat
+Apache License Version 2.0 (GPLv3 compatible)
+
+com.jakewharton.butterknife
+https://github.com/JakeWharton/butterknife
+Apache License Version 2.0 (GPLv3 compatible)
+
+joda-time
+https://github.com/JodaOrg/joda-time
+Apache License Version 2.0 (GPLv3 compatible)

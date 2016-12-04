@@ -28,8 +28,7 @@
 	<FrameLayout
 		android:id="@+id/partfile_tabcontent"
 		android:layout_width="match_parent"
-		android:layout_height="match_parent"
-		android:layout_above="@+id/adView">
+		android:layout_height="match_parent">
 	</FrameLayout>
 
 
@@ -42,17 +41,7 @@
 		app:elevation="6dp"
 		app:pressedTranslationZ="12dp"
         android:layout_alignParentRight="true"
-        android:layout_above="@+id/adView"
 		android:layout_marginBottom="@dimen/fab_margin_compensate_vertical"
 		android:layout_marginRight="@dimen/fab_margin_compensate_horizontal"/>
-
-	<com.google.android.gms.ads.AdView
-		android:id="@+id/adView"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		ads:adSize="SMART_BANNER"
-		ads:adUnitId="ca-app-pub-1535323231055867/2727208235"
-        android:layout_alignParentBottom="true">
-	</com.google.android.gms.ads.AdView>
 
 </RelativeLayout>

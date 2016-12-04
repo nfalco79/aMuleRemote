@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+/*
   ~ Copyright (c) 2015. Gianluca Vegetti
   ~ 
   ~ This program is free software: you can redistribute it and/or modify
@@ -14,13 +13,14 @@
   ~ 
   ~ You should have received a copy of the GNU General Public License
   ~ along with this program.  If not, see <http://www.gnu.org/licenses/>
-  -->
+ */
 
-<resources>
-    <string-array name="settings_server_version_description">
-        <item >2.2.0 to 2.2.6</item>
-        <item >2.3.1rc1</item>
-        <item >2.3.1</item>
-        <item >Fake server (only for debug)</item>
-    </string-array>
-</resources>
+package com.iukonline.amule.android.amuleremote;
+
+public class Flavor {
+    public final static String UPDATE_CHECKER_URL_PREFIX = "https://dl.dropboxusercontent.com/u/15068406/AmuleRemote/TARGET/aMuleRemote-update-";
+    public final static long UPDATE_CHECKER_INTERVAL = 60L*60L*1000L;
+    public final static boolean UPDATE_CHECKER_CHECK_BUILD = true;
+
+    public final static boolean ACRA_ENABLED = false;
+}
