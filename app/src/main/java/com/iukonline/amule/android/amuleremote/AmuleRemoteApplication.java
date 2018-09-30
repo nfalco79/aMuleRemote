@@ -56,8 +56,7 @@ import de.keyboardsurfer.android.widget.crouton.Crouton;
 import de.keyboardsurfer.android.widget.crouton.Style;
 
 
-@ReportsCrashes(formKey = "",
-                httpMethod = Method.PUT,
+@ReportsCrashes(httpMethod = Method.PUT,
                 reportType = Type.JSON,
                 formUri = "http://amuleremote.iriscouch.com/acra-amuleremote/_design/acra-storage/_update/report",
                 formUriBasicAuthLogin = "amuleremote-reporter",
@@ -228,9 +227,7 @@ public class AmuleRemoteApplication extends Application {
         if (server == null) return false;
 
         String host = server.host;
-        int port = 4712;
-
-        port = server.port;
+        int port = server.port;
         if (port < 1 || port > 65535) {
             notifyErrorOnGUI(R.string.error_invalid_port);
             port = 4712;
@@ -294,7 +291,7 @@ public class AmuleRemoteApplication extends Application {
     }
 
     public void refreshDebugSettings() {
-        if (mECHelper != null && android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.FROYO) {
+        if (mECHelper != null) {
             Object o = getSystemService(DROPBOX_SERVICE);
             if (o != null) mECHelper.mDropBox = (DropBoxManager) o;
         }
@@ -322,7 +319,7 @@ public class AmuleRemoteApplication extends Application {
                     mUpdateChecker = new UpdateChecker(mVersionCode);
                 }
             }
-        } catch (NameNotFoundException e) {
+        } catch (NameNotFoundException ignored) {
         }
 
         mSettings = PreferenceManager.getDefaultSharedPreferences(this);
@@ -342,7 +339,7 @@ public class AmuleRemoteApplication extends Application {
             e.remove("debug_enable_log");
             e.remove("debug_enable_options");
         }
-        e.commit();
+        e.apply();
 
         // Version 20 changed from single server to multiple server settings
         if (lastAppVer > 0 && lastAppVer < 20) {
@@ -390,8 +387,7 @@ public class AmuleRemoteApplication extends Application {
                   break;
                 s.append(buf, 0, n);
             }
-        } catch (UnsupportedEncodingException e) {
-        } catch (IOException e) {
+        } catch (IOException ignored) {
         }
         return s.toString();
     }
@@ -403,13 +399,13 @@ public class AmuleRemoteApplication extends Application {
             if (fm.findFragmentByTag(TAG_DIALOG_WHATS_NEW) == null) {
                 StringBuilder sb = new StringBuilder();
                 if (currVersion < 14) sb.append(getResources().getString(R.string.dialog_whats_new_features_14));
-                if (currVersion < 18) sb.append("\n" + getResources().getString(R.string.dialog_whats_new_features_18));
-                if (currVersion < 20) sb.append("\n" + getResources().getString(R.string.dialog_whats_new_features_20));
+                if (currVersion < 18) sb.append("\n").append(getResources().getString(R.string.dialog_whats_new_features_18));
+                if (currVersion < 20) sb.append("\n").append(getResources().getString(R.string.dialog_whats_new_features_20));
                 WhatsNewDialogFragment d = WhatsNewDialogFragment.newInstance(getResources().getString(R.string.dialog_whats_new_welcome, mVersionName), sb.toString());
                 d.show(fm, TAG_DIALOG_WHATS_NEW);
                 SharedPreferences.Editor e = mSettings.edit();
                 e.putInt(AmuleRemoteApplication.AC_SETTING_LAST_APP_VER, mVersionCode);
-                e.commit();
+                e.apply();
             }
             return true;
         } else {
@@ -421,7 +417,7 @@ public class AmuleRemoteApplication extends Application {
     public void resetAppVersionInfo() {
         SharedPreferences.Editor e = mSettings.edit();
         e.remove(AmuleRemoteApplication.AC_SETTING_LAST_APP_VER);
-        e.commit();
+        e.apply();
     }
 
 }

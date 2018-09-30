@@ -322,15 +322,15 @@ public class DlQueueFragment extends ListFragment implements DlQueueWatcher {
                 LayoutInflater vi = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 v = vi.inflate(R.layout.part_dlqueue_row, null);
                 holder = new DlQueueViewHolder();
-                holder.mFileName = (TextView) v.findViewById(R.id.amuledl_row_filename);
-                holder.mTransfered = (TextView) v.findViewById(R.id.amuledl_row_transferred);
-                holder.mComment = (TextView) v.findViewById(R.id.amuledl_row_hascomments);
+                holder.mFileName = v.findViewById(R.id.amuledl_row_filename);
+                holder.mTransfered = v.findViewById(R.id.amuledl_row_transferred);
+                holder.mComment = v.findViewById(R.id.amuledl_row_hascomments);
                 
-                holder.mSources = (TextView) v.findViewById(R.id.amuledl_row_sources);
-                holder.mETA = (TextView) v.findViewById(R.id.amuledl_row_eta);
-                holder.mProgress = (ProgressBar) v.findViewById(R.id.amuledl_row_progress);
-                holder.mStatus = (TextView) v.findViewById(R.id.amuledl_row_status);
-                holder.mPrio = (TextView) v.findViewById(R.id.amuledl_row_prio);
+                holder.mSources = v.findViewById(R.id.amuledl_row_sources);
+                holder.mETA = v.findViewById(R.id.amuledl_row_eta);
+                holder.mProgress = v.findViewById(R.id.amuledl_row_progress);
+                holder.mStatus = v.findViewById(R.id.amuledl_row_status);
+                holder.mPrio = v.findViewById(R.id.amuledl_row_prio);
                 
                 v.setTag(holder);
             } else {
@@ -387,7 +387,7 @@ public class DlQueueFragment extends ListFragment implements DlQueueWatcher {
                         StringBuffer source = new StringBuffer(Integer.toString(sourceCount - sourceNotCur));
                         if (sourceNotCur > 0) source.append("/" + Integer.toString(sourceCount));
                         if (sourceA4AF > 0) source.append("+"+Integer.toString(sourceA4AF));
-                        if (sourceXfer > 0) source.append(" (" + Integer.toString(sourceXfer) + ")");
+                        if (sourceXfer > 0) source.append(" (").append(Integer.toString(sourceXfer)).append(")");
                         
                         holder.mSources.setText(source.toString());
 
@@ -423,7 +423,7 @@ public class DlQueueFragment extends ListFragment implements DlQueueWatcher {
                             break;
                         }
                         
-                        int barResource = 0;
+                        int barResource;
                                         
  
                         switch (o.getStatus()) {
