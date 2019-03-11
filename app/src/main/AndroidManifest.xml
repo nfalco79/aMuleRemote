@@ -65,7 +65,7 @@
                 android:value="com.iukonline.amule.android.amuleremote.dlqueue.DlQueueActivity" />
         </activity>
         <activity
-            android:name=".search.SearchDetailsActivity">
+            android:name=".search.SearchDetailsActivity"
             android:parentActivityName=".search.SearchActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
